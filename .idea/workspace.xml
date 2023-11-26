@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5397af6f-a779-4ffa-a493-64e95f072b1d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/database/bodytrip.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/description" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/back_rows_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/back_rows_100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/shoulder_external_rotations_100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/shoulder_press_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/shoulder_press_100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/squats_100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/torso_roations_100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/frames/torso_rotations_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/test-data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/2/testing_data_0/landmarks.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/3/description" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Case.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/CaseLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Classifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DatabaseReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ExPerLand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GridSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Landmark.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Landmarks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MetricScorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ParamTester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PercentageSmoother.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Prediction.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2YSUJcBXsbBvcM1exNEyh4eFA1e" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/arisk/IdeaProjects/fugazi/data&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/data/database" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="fugazi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5397af6f-a779-4ffa-a493-64e95f072b1d" name="Changes" comment="" />
+      <created>1700518404135</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700518404135</updated>
+      <workItem from="1700518405231" duration="7579000" />
+      <workItem from="1700688397762" duration="13674000" />
+      <workItem from="1700769578163" duration="608000" />
+      <workItem from="1700912167440" duration="3000" />
+      <workItem from="1700930102098" duration="3137000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
