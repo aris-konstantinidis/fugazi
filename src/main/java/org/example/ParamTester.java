@@ -34,7 +34,7 @@ public class ParamTester {
 
     }
 
-    public void testParameters(Case testCase, int caseIndex) {
+    public void testParameters(Case testCase, int caseIndex, boolean assessRom) {
 
         Classifier classifier = new Classifier(
                 this.EXERCISE_HISTORY_BUFFER_SIZE,
@@ -54,7 +54,7 @@ public class ParamTester {
             exercisePredictions.add(classifier.classify(landmarks));
         }
 
-        float exerciseScore = MetricScorer.getScore(testCase, exercisePredictions);
+        float exerciseScore = MetricScorer.getScore(testCase, exercisePredictions, assessRom);
 
         System.out.println("Results for case '" + caseIndex + "':");
 

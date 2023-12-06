@@ -1,2 +1,2 @@
 exercise_buffer_size,exercise_switch_threshold,fixation_value,sd_low,sd_high,landmark_presence_threshold,rom_buffer
-9,7,3,0.017,0.019,0.969,5
+11,8,4,0.014999,0.0174999,0.96,5

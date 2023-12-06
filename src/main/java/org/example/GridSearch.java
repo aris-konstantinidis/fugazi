@@ -1,5 +1,8 @@
 package org.example;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +30,7 @@ public class GridSearch {
 
     private ArrayList<Integer> getSwitchThresholdRangeForBufferSize(int bufferSize) {
         ArrayList<Integer> range = new ArrayList<>();
-        for (int i = bufferSize / 2 + 1; i < bufferSize; i++) {
+        for (int i = (int) Math.floor(bufferSize / 2) + 1; i < bufferSize; i++) {
             range.add(i);
         }
         return range;
@@ -49,7 +52,7 @@ public class GridSearch {
         return range;
     }
 
-    public void findOptimalParams(Case testCase, int caseIndex) {
+    public void findOptimalParams(Case testCase, int caseIndex, boolean assessRom, boolean writeValueSpace) {
 
         int opt_ex_buffer_size = -1;
         int opt_max_fix_value = -1;
@@ -63,14 +66,27 @@ public class GridSearch {
 
         String output = "";
 
+        StringBuilder valueSpace = new StringBuilder("exerciseHistorySize,exerciseSwitchThreshold,fixationValue,accuracy\n");
+
         // combinatorial analysis for progress logging and feasibility evaluation
         long combinations = 0;
         long testCases = 0;
         for (int exerciseBufferSize : this.EXERCISE_HISTORY_BUFFER_SIZE) {
-            long combinationsWithoutExerciseBuffer = (long) getSwitchThresholdRangeForBufferSize(exerciseBufferSize).size() * this.MAX_FIXATION_VALUE.size() * this.PERCENTAGE_BUFFER_SIZE.size() * this.SD_LOW.size() * this.SD_HIGH.size() * this.LANDMARK_PRESENCE_THRESHOLD.size();
+            long combinationsWithoutExerciseBuffer = (long) getSwitchThresholdRangeForBufferSize(exerciseBufferSize).size()
+                    * this.MAX_FIXATION_VALUE.size()
+                    * this.PERCENTAGE_BUFFER_SIZE.size()
+                    * this.SD_LOW.size()
+                    * this.SD_HIGH.size()
+                    * this.LANDMARK_PRESENCE_THRESHOLD.size();
             combinations = combinations + combinationsWithoutExerciseBuffer;
 
-            long cases = (long) getSwitchThresholdRangeForBufferSize(exerciseBufferSize).size() * this.MAX_FIXATION_VALUE.size() * this.PERCENTAGE_BUFFER_SIZE.size() * this.SD_LOW.size() * this.SD_HIGH.size() * this.LANDMARK_PRESENCE_THRESHOLD.size() * testCase.getPoses().size();
+            long cases = (long) getSwitchThresholdRangeForBufferSize(exerciseBufferSize).size()
+                    * this.MAX_FIXATION_VALUE.size()
+                    * this.PERCENTAGE_BUFFER_SIZE.size()
+                    * this.SD_LOW.size()
+                    * this.SD_HIGH.size()
+                    * this.LANDMARK_PRESENCE_THRESHOLD.size()
+                    * testCase.getPoses().size();
             testCases = testCases + cases;
         }
 
@@ -84,6 +100,8 @@ public class GridSearch {
 
         float logInterval = (float) testCases / 1000 ;
 
+        float averageTime = 0;
+
         for (int exerciseBufferSize : this.EXERCISE_HISTORY_BUFFER_SIZE) {
             for (int switchThreshold : getSwitchThresholdRangeForBufferSize(exerciseBufferSize)) {
                 for (int fixationValue : this.MAX_FIXATION_VALUE) {
@@ -91,6 +109,8 @@ public class GridSearch {
                         for (float sdLow : this.SD_LOW) {
                             for (float sdHigh : this.SD_HIGH) {
                                 for (float presenceThreshold : this.LANDMARK_PRESENCE_THRESHOLD) {
+
+                                    long startTime = System.currentTimeMillis();
 
                                     Classifier classifier = new Classifier(exerciseBufferSize, presenceThreshold, fixationValue, switchThreshold, sdLow, sdHigh, percentageBufferSize, testCase.getStartingPosesCache(), testCase.getAllExercisePosesCache());
 
@@ -112,7 +132,12 @@ public class GridSearch {
                                     }
 
                                     testCase.getPercentageLabels();
-                                    float exerciseScore = MetricScorer.getScore(testCase, predictions);
+                                    float exerciseScore = MetricScorer.getScore(testCase, predictions, assessRom);
+
+                                    if (writeValueSpace) {
+                                        valueSpace.append(exerciseBufferSize).append(",").append(switchThreshold).append(",").append(fixationValue).append(",").append(exerciseScore).append("\n");
+                                    }
+
 
                                     if (exerciseScore > maxExerciseScore) {
                                         maxExerciseScore = exerciseScore;
@@ -125,10 +150,10 @@ public class GridSearch {
                                         opt_rom_buffer = percentageBufferSize;
 
 
-                                        if (VERBAL) {
+//                                        if (VERBAL) {
                                             output = fixationValue + ":[" + switchThreshold + "/" + exerciseBufferSize + "] " + presenceThreshold + " [" + sdLow + "-" + sdHigh + "] S: " + opt_rom_buffer;
                                             System.out.println(" - *** Optimization found: " + exerciseScore + " with params: " + output);
-                                        }
+//                                        }
 
                                     }
 
@@ -140,6 +165,18 @@ public class GridSearch {
                 }
             }
         }
+
+
+        if (writeValueSpace) {
+            String path = "data/" + caseIndex + "/predictions/" + System.currentTimeMillis() + ".csv";
+
+            try (BufferedWriter paramsWriter = new BufferedWriter(new FileWriter(path))) {
+                paramsWriter.write(String.valueOf(valueSpace));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         long stop = System.currentTimeMillis();
         System.out.println("\nGrid search statistics for case '" + caseIndex + "'");
@@ -154,7 +191,7 @@ public class GridSearch {
                 opt_sd_high,
                 opt_presence_threshold
         );
-        paramTester.testParameters(testCase, caseIndex);
+        paramTester.testParameters(testCase, caseIndex, assessRom);
 
     }
 }
