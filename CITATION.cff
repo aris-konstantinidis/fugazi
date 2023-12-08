@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ExerciseClassifier's Testing Tool
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Aris
+    family-names: Konstantinidis
+    email: aris.konstantinidis@stundents.unibe.ch
+identifiers:
+  - type: url
+    value: 'https://github.com/aris-konstantinidis/fugazi'
+repository-code: 'https://github.com/aris-konstantinidis/fugazi'
+abstract: >-
+  Testing tool for the evaluation of the
+  ExerciseClassifier's accuracy.
+keywords:
+  - range of motion
+  - exercise classification
+  - grid search
+license: MIT
+
